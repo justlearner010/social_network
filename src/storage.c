@@ -57,23 +57,20 @@ int storage_load(const char *path, UserDB *db, Graph *g) {
 
     /* 用户信息 */
     for (i = 0; i < n; i++) {
+        User u;
         int age;
-        char id[USER_ID_LEN + 1], uname[USER_NAME_LEN + 1], pwd[USER_PASS_LEN + 1];
+        /* 直接按字段宽度读入（%9s/%19s 保证不超过目标缓冲区，避免拷贝截断告警） */
         if (!next_line(buf, sizeof buf, fp) ||
-            sscanf(buf, "%9s %19s %19s %d", id, uname, pwd, &age) != 4) {
+            sscanf(buf, "%9s %19s %19s %d", u.id, u.username, u.password, &age) != 4) {
             fprintf(stderr, "[storage] 第 %d 行用户信息格式错误\n", i + 2);
             fclose(fp);
             return -1;
         }
         if (age < 0 || age > 200) {
-            fprintf(stderr, "[storage] 用户 %s 年龄非法: %d\n", uname, age);
+            fprintf(stderr, "[storage] 用户 %s 年龄非法: %d\n", u.username, age);
             fclose(fp);
             return -1;
         }
-        User u;
-        snprintf(u.id, sizeof u.id, "%s", id);
-        snprintf(u.username, sizeof u.username, "%s", uname);
-        snprintf(u.password, sizeof u.password, "%s", pwd);
         u.age = age;
         db->users[i] = u;
     }
