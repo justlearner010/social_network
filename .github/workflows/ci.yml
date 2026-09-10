@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-test:
+    name: build & test (gcc, warnings-as-errors)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run unit tests with strict warnings
+        run: make test CC=gcc CFLAGS='-std=c11 -Wall -Wextra -Wpedantic -Werror -O2'
+
+      - name: Build application (skipped until all modules merged)
+        run: |
+          if [ -f src/main.c ]; then
+            make app CC=gcc CFLAGS='-std=c11 -Wall -Wextra -Wpedantic -Werror -O2'
+            ls -la build/social_network
+          else
+            echo "src/main.c 尚未合入，跳过 app 构建"
+          fi
+
+  sanitize:
+    name: sanitizers (ASan/UBSan) + valgrind
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tests under AddressSanitizer + UBSan
+        run: make test CC=gcc CFLAGS='-std=c11 -Wall -Wextra -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer'
+
+      - name: Valgrind leak check on application
+        run: |
+          if [ -f src/main.c ]; then
+            make app CC=gcc CFLAGS='-std=c11 -Wall -Wextra -O1 -g'
+            if ! command -v valgrind >/dev/null 2>&1; then
+              sudo apt-get update
+              sudo apt-get install -y valgrind
+            fi
+            printf '5\nAlexWhite\n0\n' | valgrind --error-exitcode=1 --leak-check=full \
+              --errors-for-leak-kinds=all ./build/social_network data/users8.txt
+          else
+            echo "app 未就绪，跳过 valgrind 检查"
+          fi
+
+  demo:
+    name: usage examples (examples/demo.sh)
+    needs: [build-test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build everything
+        run: make all CC=gcc CFLAGS='-std=c11 -Wall -Wextra -Wpedantic -Werror -O2'
+
+      - name: Run demo script (skipped until merged)
+        run: |
+          if [ -f examples/demo.sh ]; then
+            bash examples/demo.sh
+          else
+            echo "examples/demo.sh 尚未合入，跳过演示"
+          fi
