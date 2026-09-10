@@ -73,9 +73,11 @@ int main(void) {
     while (db.count < MAX_USERS) {
         User x;
         char nb[16];
+        int n;
         memset(&x, 0, sizeof x);
-        snprintf(nb, sizeof nb, "%d", 10000000 + db.count);
-        snprintf(x.id, sizeof x.id, "%s", nb);
+        n = snprintf(nb, sizeof nb, "%d", 10000000 + db.count);
+        memcpy(x.id, nb, (size_t)n); /* 编号至多 8 字节，字段 10 字节足够 */
+        x.id[n] = '\0';
         snprintf(x.username, sizeof x.username, "User%d", db.count);
         snprintf(x.password, sizeof x.password, "p%d", db.count);
         x.age = 20;
