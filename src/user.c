@@ -12,7 +12,6 @@ void userdb_init(UserDB *db) {
 }
 
 int userdb_add(UserDB *db, const User *u) {
-    int i;
     if (db->count >= MAX_USERS) {
         fprintf(stderr, "[user] 用户已满（%d/%d）\n", db->count, MAX_USERS);
         return -1;

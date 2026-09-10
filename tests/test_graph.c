@@ -7,7 +7,7 @@ int main(void) {
     Graph g;
     UserDB db;
     AdjList al;
-    int u, v;
+    int u;
 
     /* 5 个用户的测试图（直接填 UserDB，不依赖 user.c 模块） */
     memset(&db, 0, sizeof db);
