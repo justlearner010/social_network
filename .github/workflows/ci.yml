@@ -37,6 +37,7 @@ jobs:
       - name: Valgrind leak check on application
         run: |
           if [ -f src/main.c ]; then
+            make clean
             make app CC=gcc CFLAGS='-std=c11 -Wall -Wextra -O1 -g'
             if ! command -v valgrind >/dev/null 2>&1; then
               sudo apt-get update

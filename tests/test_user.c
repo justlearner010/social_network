@@ -72,8 +72,10 @@ int main(void) {
     /* 满员边界：填充至 MAX_USERS */
     while (db.count < MAX_USERS) {
         User x;
+        char nb[16];
         memset(&x, 0, sizeof x);
-        snprintf(x.id, sizeof x.id, "%d", 10000000 + db.count);
+        snprintf(nb, sizeof nb, "%d", 10000000 + db.count);
+        snprintf(x.id, sizeof x.id, "%s", nb);
         snprintf(x.username, sizeof x.username, "User%d", db.count);
         snprintf(x.password, sizeof x.password, "p%d", db.count);
         x.age = 20;
