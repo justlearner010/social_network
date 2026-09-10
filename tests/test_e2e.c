@@ -82,27 +82,29 @@ static void test_file(const char *path) {
     }
     adjlist_free(&al);
 
-    /* 好友删除 → 连通性破坏示例；重新添加 → 恢复 */
-    /* 找一条割边：删除后不连通 */
+    /* 好友删除 → 重新添加：对称移除、边数减少、恢复后仍连通 */
     {
-        int cut_i = -1, cut_j = -1;
-        for (s = 0; s < n && cut_i < 0; s++)
+        int ei = -1, ej = -1;
+        float ew = 0.0f;
+        for (s = 0; s < n && ei < 0; s++)
             for (t = s + 1; t < n; t++)
                 if (g.adj[s][t] > 0.0f) {
-                    float w = g.adj[s][t];
-                    graph_del_edge(&g, s, t);
-                    if (!graph_is_connected(&g)) {
-                        cut_i = s;
-                        cut_j = t;
-                    }
-                    graph_set_edge(&g, s, t, w); /* 恢复 */
+                    ei = s;
+                    ej = t;
+                    ew = g.adj[s][t];
                 }
-        CHECK(cut_i >= 0); /* 非稀疏连通图必存在割边 */
-        if (cut_i >= 0) {
-            float w = g.adj[cut_i][cut_j];
-            graph_del_edge(&g, cut_i, cut_j);
-            CHECK(!graph_is_connected(&g));
-            graph_set_edge(&g, cut_i, cut_j, w);
+        CHECK(ei >= 0);
+        if (ei >= 0) {
+            int e_after;
+            graph_del_edge(&g, ei, ej);
+            CHECK(!graph_has_edge(&g, ei, ej));
+            e_after = 0;
+            for (s = 0; s < n; s++)
+                for (t = s + 1; t < n; t++)
+                    if (g.adj[s][t] > 0.0f) e_after++;
+            CHECK_EQ_INT(e_after, edges - 1);
+            graph_set_edge(&g, ei, ej, ew);
+            CHECK(graph_has_edge(&g, ei, ej));
             CHECK(graph_is_connected(&g));
         }
     }

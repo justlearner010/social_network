@@ -1,0 +1,356 @@
+已加载 20 位用户（数据文件 data/users20.txt）
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 共 20 位用户
+编号     姓名             密码     年龄
+20250621   AlexWhite          u3R3k1L0   31  
+20250622   EmmaJones          b8P6z0O8   34  
+20250623   JackAnderson       q0B2e1L2   28  
+20250624   SophiaClark        x3L8e7X0   35  
+20250625   MichaelSmith       g1J7y7I5   37  
+20250626   OliviaThomas       v4T1y8M3   37  
+20250627   DanielBrown        j8E3o2H5   20  
+20250628   AvaDavis           f5O7p3P9   33  
+20250629   LiamJackson        z0E5p8R4   25  
+20250630   NoahLee            p8Q2q0U5   19  
+20250631   MiaMiller          f2C7q7P9   20  
+20250632   EthanHarris        x8R8t2G3   20  
+20250633   ChloeKing          a8K5h1C1   32  
+20250634   LucasWilson        o6B9j8P3   26  
+20250635   GraceMartin        f0L3f1E8   23  
+20250636   LeoWu              o0G4v2Q5   24  
+20250637   ZoeMoore           p1Z7i2L6   20  
+20250638   RyanThompson       q7I3z8R6   27  
+20250639   NoraGreen          y4D9b3H9   28  
+20250640   IvyTaylor          n5I4h0R2   21  
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 邻接矩阵（亲密度，0=无边）：
+          AlexWhite EmmaJones JackAnder SophiaCla MichaelSm OliviaTho DanielBro  AvaDavis LiamJacks   NoahLee MiaMiller EthanHarr ChloeKing LucasWils GraceMart     LeoWu  ZoeMoore RyanThomp NoraGreen IvyTaylor
+AlexWhite     0.000     0.808     0.000     0.409     0.708     0.000     0.000     0.453     0.000     0.000     0.591     0.661     0.235     0.000     0.707     0.387     0.664     0.000     0.000     0.305
+EmmaJones     0.808     0.000     0.000     0.000     0.388     0.934     0.000     0.000     0.001     0.567     0.000     0.000     0.869     0.000     0.000     0.000     0.403     0.000     0.092     0.842
+JackAnder     0.000     0.000     0.000     0.000     0.000     0.000     0.435     0.504     0.391     0.746     0.551     0.172     0.000     0.613     0.911     0.120     0.611     0.585     0.367     0.719
+SophiaCla     0.409     0.000     0.000     0.000     0.000     0.655     0.736     0.690     0.758     0.266     0.950     0.000     0.985     0.000     0.705     0.794     0.000     0.969     0.000     0.230
+MichaelSm     0.708     0.388     0.000     0.000     0.000     0.661     0.346     0.422     0.101     0.015     0.962     0.000     0.060     0.342     0.249     0.808     0.000     0.097     0.000     0.829
+OliviaTho     0.000     0.934     0.000     0.655     0.661     0.000     0.203     0.774     0.606     0.000     0.385     0.450     0.786     0.810     0.446     0.000     0.243     0.591     0.637     0.000
+DanielBro     0.000     0.000     0.435     0.736     0.346     0.203     0.000     0.549     0.750     0.118     0.744     0.374     0.000     0.000     0.537     0.600     0.000     0.000     0.156     0.368
+ AvaDavis     0.453     0.000     0.504     0.690     0.422     0.774     0.549     0.000     0.990     0.000     0.351     0.988     0.842     0.000     0.538     0.000     0.311     0.147     0.000     0.824
+LiamJacks     0.000     0.001     0.391     0.758     0.101     0.606     0.750     0.990     0.000     0.000     0.654     0.000     0.000     0.000     0.000     0.000     0.704     0.000     0.000     0.000
+  NoahLee     0.000     0.567     0.746     0.266     0.015     0.000     0.118     0.000     0.000     0.000     0.404     0.000     0.672     0.864     0.243     0.238     0.000     0.431     0.821     0.000
+MiaMiller     0.591     0.000     0.551     0.950     0.962     0.385     0.744     0.351     0.654     0.404     0.000     0.901     0.323     0.000     0.448     0.655     0.389     0.673     0.996     0.203
+EthanHarr     0.661     0.000     0.172     0.000     0.000     0.450     0.374     0.988     0.000     0.000     0.901     0.000     0.148     0.414     0.452     0.000     0.483     0.000     0.000     0.000
+ChloeKing     0.235     0.869     0.000     0.985     0.060     0.786     0.000     0.842     0.000     0.672     0.323     0.148     0.000     0.633     0.531     0.365     0.774     0.000     0.000     0.354
+LucasWils     0.000     0.000     0.613     0.000     0.342     0.810     0.000     0.000     0.000     0.864     0.000     0.414     0.633     0.000     0.014     0.000     0.000     0.738     0.000     0.000
+GraceMart     0.707     0.000     0.911     0.705     0.249     0.446     0.537     0.538     0.000     0.243     0.448     0.452     0.531     0.014     0.000     0.000     0.000     0.257     0.951     0.168
+    LeoWu     0.387     0.000     0.120     0.794     0.808     0.000     0.600     0.000     0.000     0.238     0.655     0.000     0.365     0.000     0.000     0.000     0.529     0.759     0.026     0.228
+ ZoeMoore     0.664     0.403     0.611     0.000     0.000     0.243     0.000     0.311     0.704     0.000     0.389     0.483     0.774     0.000     0.000     0.529     0.000     0.823     0.000     0.607
+RyanThomp     0.000     0.000     0.585     0.969     0.097     0.591     0.000     0.147     0.000     0.431     0.673     0.000     0.000     0.738     0.257     0.759     0.823     0.000     0.000     0.305
+NoraGreen     0.000     0.092     0.367     0.000     0.000     0.637     0.156     0.000     0.000     0.821     0.996     0.000     0.000     0.000     0.951     0.026     0.000     0.000     0.000     0.000
+IvyTaylor     0.305     0.842     0.719     0.230     0.829     0.000     0.368     0.824     0.000     0.000     0.203     0.000     0.354     0.000     0.168     0.228     0.607     0.305     0.000     0.000
+好友关系（亲密度权值）：
+  AlexWhite <-> EmmaJones  (0.808)
+  AlexWhite <-> SophiaClark  (0.409)
+  AlexWhite <-> MichaelSmith  (0.708)
+  AlexWhite <-> AvaDavis  (0.453)
+  AlexWhite <-> MiaMiller  (0.591)
+  AlexWhite <-> EthanHarris  (0.661)
+  AlexWhite <-> ChloeKing  (0.235)
+  AlexWhite <-> GraceMartin  (0.707)
+  AlexWhite <-> LeoWu  (0.387)
+  AlexWhite <-> ZoeMoore  (0.664)
+  AlexWhite <-> IvyTaylor  (0.305)
+  EmmaJones <-> MichaelSmith  (0.388)
+  EmmaJones <-> OliviaThomas  (0.934)
+  EmmaJones <-> LiamJackson  (0.001)
+  EmmaJones <-> NoahLee  (0.567)
+  EmmaJones <-> ChloeKing  (0.869)
+  EmmaJones <-> ZoeMoore  (0.403)
+  EmmaJones <-> NoraGreen  (0.092)
+  EmmaJones <-> IvyTaylor  (0.842)
+  JackAnderson <-> DanielBrown  (0.435)
+  JackAnderson <-> AvaDavis  (0.504)
+  JackAnderson <-> LiamJackson  (0.391)
+  JackAnderson <-> NoahLee  (0.746)
+  JackAnderson <-> MiaMiller  (0.551)
+  JackAnderson <-> EthanHarris  (0.172)
+  JackAnderson <-> LucasWilson  (0.613)
+  JackAnderson <-> GraceMartin  (0.911)
+  JackAnderson <-> LeoWu  (0.120)
+  JackAnderson <-> ZoeMoore  (0.611)
+  JackAnderson <-> RyanThompson  (0.585)
+  JackAnderson <-> NoraGreen  (0.367)
+  JackAnderson <-> IvyTaylor  (0.719)
+  SophiaClark <-> OliviaThomas  (0.655)
+  SophiaClark <-> DanielBrown  (0.736)
+  SophiaClark <-> AvaDavis  (0.690)
+  SophiaClark <-> LiamJackson  (0.758)
+  SophiaClark <-> NoahLee  (0.266)
+  SophiaClark <-> MiaMiller  (0.950)
+  SophiaClark <-> ChloeKing  (0.985)
+  SophiaClark <-> GraceMartin  (0.705)
+  SophiaClark <-> LeoWu  (0.794)
+  SophiaClark <-> RyanThompson  (0.969)
+  SophiaClark <-> IvyTaylor  (0.230)
+  MichaelSmith <-> OliviaThomas  (0.661)
+  MichaelSmith <-> DanielBrown  (0.346)
+  MichaelSmith <-> AvaDavis  (0.422)
+  MichaelSmith <-> LiamJackson  (0.101)
+  MichaelSmith <-> NoahLee  (0.015)
+  MichaelSmith <-> MiaMiller  (0.962)
+  MichaelSmith <-> ChloeKing  (0.060)
+  MichaelSmith <-> LucasWilson  (0.342)
+  MichaelSmith <-> GraceMartin  (0.249)
+  MichaelSmith <-> LeoWu  (0.808)
+  MichaelSmith <-> RyanThompson  (0.097)
+  MichaelSmith <-> IvyTaylor  (0.829)
+  OliviaThomas <-> DanielBrown  (0.203)
+  OliviaThomas <-> AvaDavis  (0.774)
+  OliviaThomas <-> LiamJackson  (0.606)
+  OliviaThomas <-> MiaMiller  (0.385)
+  OliviaThomas <-> EthanHarris  (0.450)
+  OliviaThomas <-> ChloeKing  (0.786)
+  OliviaThomas <-> LucasWilson  (0.810)
+  OliviaThomas <-> GraceMartin  (0.446)
+  OliviaThomas <-> ZoeMoore  (0.243)
+  OliviaThomas <-> RyanThompson  (0.591)
+  OliviaThomas <-> NoraGreen  (0.637)
+  DanielBrown <-> AvaDavis  (0.549)
+  DanielBrown <-> LiamJackson  (0.750)
+  DanielBrown <-> NoahLee  (0.118)
+  DanielBrown <-> MiaMiller  (0.744)
+  DanielBrown <-> EthanHarris  (0.374)
+  DanielBrown <-> GraceMartin  (0.537)
+  DanielBrown <-> LeoWu  (0.600)
+  DanielBrown <-> NoraGreen  (0.156)
+  DanielBrown <-> IvyTaylor  (0.368)
+  AvaDavis <-> LiamJackson  (0.990)
+  AvaDavis <-> MiaMiller  (0.351)
+  AvaDavis <-> EthanHarris  (0.988)
+  AvaDavis <-> ChloeKing  (0.842)
+  AvaDavis <-> GraceMartin  (0.538)
+  AvaDavis <-> ZoeMoore  (0.311)
+  AvaDavis <-> RyanThompson  (0.147)
+  AvaDavis <-> IvyTaylor  (0.824)
+  LiamJackson <-> MiaMiller  (0.654)
+  LiamJackson <-> ZoeMoore  (0.704)
+  NoahLee <-> MiaMiller  (0.404)
+  NoahLee <-> ChloeKing  (0.672)
+  NoahLee <-> LucasWilson  (0.864)
+  NoahLee <-> GraceMartin  (0.243)
+  NoahLee <-> LeoWu  (0.238)
+  NoahLee <-> RyanThompson  (0.431)
+  NoahLee <-> NoraGreen  (0.821)
+  MiaMiller <-> EthanHarris  (0.901)
+  MiaMiller <-> ChloeKing  (0.323)
+  MiaMiller <-> GraceMartin  (0.448)
+  MiaMiller <-> LeoWu  (0.655)
+  MiaMiller <-> ZoeMoore  (0.389)
+  MiaMiller <-> RyanThompson  (0.673)
+  MiaMiller <-> NoraGreen  (0.996)
+  MiaMiller <-> IvyTaylor  (0.203)
+  EthanHarris <-> ChloeKing  (0.148)
+  EthanHarris <-> LucasWilson  (0.414)
+  EthanHarris <-> GraceMartin  (0.452)
+  EthanHarris <-> ZoeMoore  (0.483)
+  ChloeKing <-> LucasWilson  (0.633)
+  ChloeKing <-> GraceMartin  (0.531)
+  ChloeKing <-> LeoWu  (0.365)
+  ChloeKing <-> ZoeMoore  (0.774)
+  ChloeKing <-> IvyTaylor  (0.354)
+  LucasWilson <-> GraceMartin  (0.014)
+  LucasWilson <-> RyanThompson  (0.738)
+  GraceMartin <-> RyanThompson  (0.257)
+  GraceMartin <-> NoraGreen  (0.951)
+  GraceMartin <-> IvyTaylor  (0.168)
+  LeoWu <-> ZoeMoore  (0.529)
+  LeoWu <-> RyanThompson  (0.759)
+  LeoWu <-> NoraGreen  (0.026)
+  LeoWu <-> IvyTaylor  (0.228)
+  ZoeMoore <-> RyanThompson  (0.823)
+  ZoeMoore <-> IvyTaylor  (0.607)
+  RyanThompson <-> IvyTaylor  (0.305)
+共 121 条好友关系
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: DFS（显式栈）访问顺序: AlexWhite(0) -> EmmaJones(1) -> MichaelSmith(4) -> OliviaThomas(5) -> SophiaClark(3) -> DanielBrown(6) -> JackAnderson(2) -> AvaDavis(7) -> LiamJackson(8) -> MiaMiller(10) -> NoahLee(9) -> ChloeKing(12) -> EthanHarris(11) -> LucasWilson(13) -> GraceMartin(14) -> RyanThompson(17) -> LeoWu(15) -> ZoeMoore(16) -> IvyTaylor(19) -> NoraGreen(18)
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: 未找到用户: EmmaClark
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: 未找到用户: JackBrown
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: 未找到用户: SophiaLee
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 共 20 位用户
+编号     姓名             密码     年龄
+20250621   AlexWhite          u3R3k1L0   31  
+20250622   EmmaJones          b8P6z0O8   34  
+20250623   JackAnderson       q0B2e1L2   28  
+20250624   SophiaClark        x3L8e7X0   35  
+20250625   MichaelSmith       g1J7y7I5   37  
+20250626   OliviaThomas       v4T1y8M3   37  
+20250627   DanielBrown        j8E3o2H5   20  
+20250628   AvaDavis           f5O7p3P9   33  
+20250629   LiamJackson        z0E5p8R4   25  
+20250630   NoahLee            p8Q2q0U5   19  
+20250631   MiaMiller          f2C7q7P9   20  
+20250632   EthanHarris        x8R8t2G3   20  
+20250633   ChloeKing          a8K5h1C1   32  
+20250634   LucasWilson        o6B9j8P3   26  
+20250635   GraceMartin        f0L3f1E8   23  
+20250636   LeoWu              o0G4v2Q5   24  
+20250637   ZoeMoore           p1Z7i2L6   20  
+20250638   RyanThompson       q7I3z8R6   27  
+20250639   NoraGreen          y4D9b3H9   28  
+20250640   IvyTaylor          n5I4h0R2   21  
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 最小生成树（19 条边，总权值 2.449）：
+  AlexWhite <-> ChloeKing  (0.235)
+  ChloeKing <-> MichaelSmith  (0.060)
+  MichaelSmith <-> NoahLee  (0.015)
+  MichaelSmith <-> RyanThompson  (0.097)
+  MichaelSmith <-> LiamJackson  (0.101)
+  LiamJackson <-> EmmaJones  (0.001)
+  EmmaJones <-> NoraGreen  (0.092)
+  NoraGreen <-> LeoWu  (0.026)
+  NoahLee <-> DanielBrown  (0.118)
+  LeoWu <-> JackAnderson  (0.120)
+  RyanThompson <-> AvaDavis  (0.147)
+  ChloeKing <-> EthanHarris  (0.148)
+  DanielBrown <-> OliviaThomas  (0.203)
+  LeoWu <-> IvyTaylor  (0.228)
+  IvyTaylor <-> GraceMartin  (0.168)
+  GraceMartin <-> LucasWilson  (0.014)
+  IvyTaylor <-> MiaMiller  (0.203)
+  IvyTaylor <-> SophiaClark  (0.230)
+  OliviaThomas <-> ZoeMoore  (0.243)
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 最小生成树（19 条边，总权值 2.449）：
+  EmmaJones <-> LiamJackson  (0.001)
+  LucasWilson <-> GraceMartin  (0.014)
+  MichaelSmith <-> NoahLee  (0.015)
+  LeoWu <-> NoraGreen  (0.026)
+  MichaelSmith <-> ChloeKing  (0.060)
+  EmmaJones <-> NoraGreen  (0.092)
+  MichaelSmith <-> RyanThompson  (0.097)
+  MichaelSmith <-> LiamJackson  (0.101)
+  DanielBrown <-> NoahLee  (0.118)
+  JackAnderson <-> LeoWu  (0.120)
+  AvaDavis <-> RyanThompson  (0.147)
+  EthanHarris <-> ChloeKing  (0.148)
+  GraceMartin <-> IvyTaylor  (0.168)
+  OliviaThomas <-> DanielBrown  (0.203)
+  MiaMiller <-> IvyTaylor  (0.203)
+  LeoWu <-> IvyTaylor  (0.228)
+  SophiaClark <-> IvyTaylor  (0.230)
+  AlexWhite <-> ChloeKing  (0.235)
+  OliviaThomas <-> ZoeMoore  (0.243)
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: 终点用户姓名: 未找到用户: AvaJones
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: 未找到用户: SophiaLee
+终点用户姓名: 未找到用户: MichaelKing
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 用户 A 姓名: 用户 B 姓名: 未找到用户: EmmaClark
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 

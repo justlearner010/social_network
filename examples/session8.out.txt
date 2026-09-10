@@ -1,0 +1,165 @@
+已加载 8 位用户（数据文件 data/users8.txt）
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 共 8 位用户
+编号     姓名             密码     年龄
+20250621   AlexWhite          a1B2c3D4   25  
+20250622   EmmaClark          x9Y8z7W6   30  
+20250623   JackBrown          m5N4p3Q2   22  
+20250624   SophiaLee          d7E6f5G4   28  
+20250625   MichaelKing        r3S2t1U0   35  
+20250626   OliviaWu           b9C8d7F6   24  
+20250627   DanielGreen        k2L1m0N9   29  
+20250628   AvaJones           p4Q3r2S1   27  
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 邻接矩阵（亲密度，0=无边）：
+          AlexWhite EmmaClark JackBrown SophiaLee MichaelKi  OliviaWu DanielGre  AvaJones
+AlexWhite     0.000     0.000     0.000     0.777     0.000     0.000     0.929     0.389
+EmmaClark     0.000     0.000     0.019     0.459     0.789     0.000     0.492     0.000
+JackBrown     0.000     0.019     0.000     0.737     0.248     0.000     0.411     0.939
+SophiaLee     0.777     0.459     0.737     0.000     0.618     0.000     0.529     0.604
+MichaelKi     0.000     0.789     0.248     0.618     0.000     0.787     0.885     0.000
+ OliviaWu     0.000     0.000     0.000     0.000     0.787     0.000     0.000     0.000
+DanielGre     0.929     0.492     0.411     0.529     0.885     0.000     0.000     0.389
+ AvaJones     0.389     0.000     0.939     0.604     0.000     0.000     0.389     0.000
+好友关系（亲密度权值）：
+  AlexWhite <-> SophiaLee  (0.777)
+  AlexWhite <-> DanielGreen  (0.929)
+  AlexWhite <-> AvaJones  (0.389)
+  EmmaClark <-> JackBrown  (0.019)
+  EmmaClark <-> SophiaLee  (0.459)
+  EmmaClark <-> MichaelKing  (0.789)
+  EmmaClark <-> DanielGreen  (0.492)
+  JackBrown <-> SophiaLee  (0.737)
+  JackBrown <-> MichaelKing  (0.248)
+  JackBrown <-> DanielGreen  (0.411)
+  JackBrown <-> AvaJones  (0.939)
+  SophiaLee <-> MichaelKing  (0.618)
+  SophiaLee <-> DanielGreen  (0.529)
+  SophiaLee <-> AvaJones  (0.604)
+  MichaelKing <-> OliviaWu  (0.787)
+  MichaelKing <-> DanielGreen  (0.885)
+  DanielGreen <-> AvaJones  (0.389)
+共 17 条好友关系
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: DFS（显式栈）访问顺序: AlexWhite(0) -> SophiaLee(3) -> EmmaClark(1) -> JackBrown(2) -> MichaelKing(4) -> OliviaWu(5) -> DanielGreen(6) -> AvaJones(7)
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: DFS（递归）访问顺序: AlexWhite(0) -> SophiaLee(3) -> EmmaClark(1) -> JackBrown(2) -> MichaelKing(4) -> OliviaWu(5) -> DanielGreen(6) -> AvaJones(7)
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: BFS 访问顺序: AlexWhite(0) -> SophiaLee(3) -> DanielGreen(6) -> AvaJones(7) -> EmmaClark(1) -> JackBrown(2) -> MichaelKing(4) -> OliviaWu(5)
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: K 值: 与 AlexWhite 距离为 1 的用户: 
+  SophiaLee(3)
+  DanielGreen(6)
+  AvaJones(7)
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 最小生成树（7 条边，总权值 2.702）：
+  AlexWhite <-> AvaJones  (0.389)
+  AvaJones <-> DanielGreen  (0.389)
+  DanielGreen <-> JackBrown  (0.411)
+  JackBrown <-> EmmaClark  (0.019)
+  JackBrown <-> MichaelKing  (0.248)
+  EmmaClark <-> SophiaLee  (0.459)
+  MichaelKing <-> OliviaWu  (0.787)
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 最小生成树（7 条边，总权值 2.702）：
+  EmmaClark <-> JackBrown  (0.019)
+  JackBrown <-> MichaelKing  (0.248)
+  DanielGreen <-> AvaJones  (0.389)
+  AlexWhite <-> AvaJones  (0.389)
+  JackBrown <-> DanielGreen  (0.411)
+  EmmaClark <-> SophiaLee  (0.459)
+  MichaelKing <-> OliviaWu  (0.787)
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: 终点用户姓名: Floyd 最短路径 AlexWhite -> AvaJones: AlexWhite(0) -> AvaJones(7)    路径长度: 0.389
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 起点用户姓名: 终点用户姓名: Dijkstra 最短路径 AlexWhite -> AvaJones: AlexWhite(0) -> AvaJones(7)    路径长度: 0.389
+
+======== 小型社交网络系统 ========
+ 1 显示所有用户       2 显示关系图(矩阵)
+ 3 添加好友           4 删除好友
+ 5 DFS 遍历(显式栈)   6 DFS 遍历(递归)
+ 7 BFS 遍历           8 BFS 距离 K
+ 9 Prim 最小生成树   10 Kruskal 最小生成树
+11 Floyd 最短路径    12 Dijkstra 最短路径
+13 保存数据           0 退出
+请选择: 
