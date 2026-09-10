@@ -1,5 +1,7 @@
 # 小型社交网络系统
 
+[![CI](https://github.com/justlearner010/social_network/actions/workflows/ci.yml/badge.svg)](https://github.com/justlearner010/social_network/actions/workflows/ci.yml)
+
 > **课程项目声明**：本仓库是《数据结构》课程的课程项目（"小型社交网络系统设计与实现"，需求见 [docs/小型社交网络系统设计与实现.docx](docs/小型社交网络系统设计与实现.docx)）。
 > 本项目代码整体由 **AI 实现**，由作者（课程项目负责人）**逐功能分支 review 后合入**：每个功能对应一个 GitHub Issue、一个独立 worktree 分支，代码必须通过本地测试与 GitHub CI，并在合入前由作者人工评审（评审记录见 [REVIEW.md](REVIEW.md)）。
 
