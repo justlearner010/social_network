@@ -50,8 +50,10 @@ int storage_load(const char *path, UserDB *db, Graph *g) {
         return -1;
     }
 
-    userdb_init(db);
-    graph_init(g, n);
+    /* 直接初始化结构（不依赖 user.c / graph.c，保持分支独立） */
+    memset(db, 0, sizeof *db);
+    memset(g, 0, sizeof *g);
+    g->num_users = n;
 
     /* 用户信息 */
     for (i = 0; i < n; i++) {
