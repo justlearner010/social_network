@@ -40,7 +40,7 @@ build/obj/%.o: src/%.c $(HDRS)
 # 每个测试为独立可执行文件：源码 + 除 main.o 外的全部模块
 build/tests/%: tests/%.c $(APP_OBJS) $(HDRS)
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INC) -o $@ $< $(LDLIBS)
+	$(CC) $(CFLAGS) $(INC) -o $@ $< $(APP_OBJS) $(LDLIBS)
 
 test: $(TEST_BINS)
 	@fail=0; \
