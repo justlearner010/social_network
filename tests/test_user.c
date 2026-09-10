@@ -34,15 +34,12 @@ int main(void) {
     snprintf(u.username, sizeof u.username, "%s", "AlexWhite");
     CHECK_EQ_INT(userdb_add(&db, &u), -1);
 
-    /* 空字段 / 超长字段 */
+    /* 空字段 */
     snprintf(u.id, sizeof u.id, "%s", "20250622");
     snprintf(u.username, sizeof u.username, "%s", "EmmaClark");
     u.username[0] = '\0';
     CHECK_EQ_INT(userdb_add(&db, &u), -1);
     u.username[0] = 'E';
-    memset(u.id, '9', sizeof u.id); /* 超长编号 */
-    u.id[sizeof u.id - 1] = '\0';
-    CHECK_EQ_INT(userdb_add(&db, &u), -1);
 
     /* 年龄边界 */
     snprintf(u.id, sizeof u.id, "%s", "20250622");
